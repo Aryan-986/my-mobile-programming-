@@ -1,3 +1,2577 @@
-<html>
-    
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>TalentHub — Discover. Connect. Create.</title>
+
+  <meta
+    name="description"
+    content="TalentHub — discover talented creators, book experiences and build your career."
+  />
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    /* =========================================================
+       RESET
+    ========================================================= */
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "DM Sans", sans-serif;
+      background: #08080b;
+      color: #f5f5f5;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    /* =========================================================
+       VARIABLES
+    ========================================================= */
+
+    :root {
+      --bg: #08080b;
+      --surface: #111116;
+      --surface-2: #16161d;
+      --border: rgba(255,255,255,0.09);
+
+      --white: #ffffff;
+      --muted: #a4a4af;
+
+      --purple: #8b5cf6;
+      --pink: #ec4899;
+      --orange: #fb923c;
+      --cyan: #22d3ee;
+
+      --gradient:
+        linear-gradient(
+          120deg,
+          #8b5cf6,
+          #ec4899,
+          #fb7185
+        );
+
+      --radius-lg: 28px;
+      --radius-md: 18px;
+      --radius-sm: 12px;
+    }
+
+    /* =========================================================
+       GLOBAL
+    ========================================================= */
+
+    .container {
+      width: min(1180px, 92%);
+      margin: auto;
+    }
+
+    .section {
+      padding: 110px 0;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 30px;
+      margin-bottom: 42px;
+    }
+
+    .section-label {
+      color: #b794ff;
+      text-transform: uppercase;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      font-family: "Manrope", sans-serif;
+      font-size: clamp(32px, 4vw, 52px);
+      line-height: 1.05;
+      letter-spacing: -2px;
+    }
+
+    .section-description {
+      max-width: 480px;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .gradient-text {
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    /* =========================================================
+       NAVBAR
+    ========================================================= */
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+
+      background: rgba(8, 8, 11, 0.72);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .navbar {
+      height: 78px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      font-family: "Manrope", sans-serif;
+      font-size: 21px;
+      font-weight: 800;
+      letter-spacing: -0.8px;
+    }
+
+    .logo-mark {
+      width: 34px;
+      height: 34px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 11px;
+
+      background: var(--gradient);
+
+      box-shadow:
+        0 8px 30px rgba(139,92,246,0.25);
+    }
+
+    .logo-mark span {
+      font-weight: 900;
+      color: white;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+
+    nav a {
+      color: #c4c4cc;
+      font-size: 14px;
+      transition: 0.25s ease;
+    }
+
+    nav a:hover {
+      color: white;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .login-btn {
+      padding: 10px 18px;
+      color: #d5d5dc;
+      font-size: 14px;
+    }
+
+    .signup-btn {
+      padding: 11px 18px;
+
+      border-radius: 10px;
+
+      background: white;
+      color: #08080b;
+
+      font-size: 14px;
+      font-weight: 700;
+
+      transition: 0.25s ease;
+    }
+
+    .signup-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(255,255,255,0.12);
+    }
+
+    /* =========================================================
+       HERO
+    ========================================================= */
+
+    .hero {
+      min-height: 100vh;
+      padding-top: 78px;
+
+      position: relative;
+
+      display: flex;
+      align-items: center;
+
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+
+      position: absolute;
+
+      width: 700px;
+      height: 700px;
+
+      top: -300px;
+      left: -180px;
+
+      background: rgba(139,92,246,0.17);
+
+      filter: blur(120px);
+
+      border-radius: 50%;
+    }
+
+    .hero::after {
+      content: "";
+
+      position: absolute;
+
+      width: 500px;
+      height: 500px;
+
+      right: -200px;
+      bottom: -200px;
+
+      background: rgba(236,72,153,0.13);
+
+      filter: blur(120px);
+
+      border-radius: 50%;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+
+      max-width: 850px;
+      margin: auto;
+
+      text-align: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+
+      padding: 7px 12px;
+
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 100px;
+
+      background: rgba(255,255,255,0.04);
+
+      color: #c9c9d1;
+
+      font-size: 12px;
+
+      margin-bottom: 28px;
+    }
+
+    .live-dot {
+      width: 7px;
+      height: 7px;
+
+      border-radius: 50%;
+
+      background: #4ade80;
+
+      box-shadow: 0 0 12px #4ade80;
+    }
+
+    .hero h1 {
+      font-family: "Manrope", sans-serif;
+
+      font-size: clamp(55px, 8vw, 94px);
+
+      line-height: 0.98;
+
+      letter-spacing: -5px;
+
+      font-weight: 800;
+
+      margin-bottom: 28px;
+    }
+
+    .hero-description {
+      max-width: 650px;
+
+      margin: auto;
+
+      color: #a6a6b1;
+
+      font-size: 18px;
+    }
+
+    .hero-search {
+      width: min(680px, 100%);
+
+      margin: 40px auto 24px;
+
+      padding: 7px;
+
+      display: flex;
+      align-items: center;
+
+      border-radius: 16px;
+
+      background: #141419;
+
+      border: 1px solid rgba(255,255,255,0.1);
+
+      box-shadow:
+        0 20px 70px rgba(0,0,0,0.35);
+    }
+
+    .search-icon {
+      width: 50px;
+
+      display: grid;
+      place-items: center;
+
+      color: #777782;
+      font-size: 20px;
+    }
+
+    .hero-search input {
+      flex: 1;
+
+      border: 0;
+      outline: 0;
+
+      background: transparent;
+
+      color: white;
+
+      padding: 15px 5px;
+
+      font-size: 15px;
+    }
+
+    .hero-search input::placeholder {
+      color: #71717b;
+    }
+
+    .search-btn {
+      border: 0;
+
+      padding: 14px 22px;
+
+      border-radius: 11px;
+
+      background: var(--gradient);
+
+      color: white;
+
+      font-weight: 700;
+
+      transition: 0.25s ease;
+    }
+
+    .search-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(139,92,246,0.25);
+    }
+
+    .hero-tags {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 9px;
+    }
+
+    .hero-tags span {
+      padding: 7px 12px;
+
+      border-radius: 100px;
+
+      background: rgba(255,255,255,0.04);
+
+      color: #8f8f9a;
+
+      font-size: 12px;
+
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    /* =========================================================
+       STATS
+    ========================================================= */
+
+    .stats {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+
+      background: #0c0c10;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .stat {
+      padding: 32px;
+
+      text-align: center;
+
+      border-right: 1px solid var(--border);
+    }
+
+    .stat:last-child {
+      border-right: 0;
+    }
+
+    .stat h3 {
+      font-family: "Manrope", sans-serif;
+
+      font-size: 30px;
+
+      margin-bottom: 4px;
+    }
+
+    .stat p {
+      color: #777782;
+      font-size: 13px;
+    }
+
+    /* =========================================================
+       TALENT CARDS
+    ========================================================= */
+
+    .talent-grid {
+      display: grid;
+
+      grid-template-columns: repeat(4, 1fr);
+
+      gap: 18px;
+    }
+
+    .talent-card {
+      background: #111116;
+
+      border: 1px solid var(--border);
+
+      border-radius: var(--radius-md);
+
+      overflow: hidden;
+
+      transition: 0.35s ease;
+    }
+
+    .talent-card:hover {
+      transform: translateY(-7px);
+
+      border-color: rgba(255,255,255,0.17);
+
+      box-shadow:
+        0 25px 60px rgba(0,0,0,0.35);
+    }
+
+    .talent-image {
+      height: 310px;
+
+      position: relative;
+
+      overflow: hidden;
+    }
+
+    .talent-image img {
+      height: 100%;
+
+      transition: 0.5s ease;
+    }
+
+    .talent-card:hover .talent-image img {
+      transform: scale(1.06);
+    }
+
+    .online {
+      position: absolute;
+
+      top: 13px;
+      left: 13px;
+
+      display: flex;
+      align-items: center;
+      gap: 6px;
+
+      padding: 6px 9px;
+
+      background: rgba(0,0,0,0.55);
+
+      backdrop-filter: blur(10px);
+
+      border-radius: 100px;
+
+      font-size: 10px;
+    }
+
+    .online i {
+      width: 6px;
+      height: 6px;
+
+      border-radius: 50%;
+
+      background: #4ade80;
+    }
+
+    .heart {
+      position: absolute;
+
+      right: 13px;
+      top: 13px;
+
+      width: 34px;
+      height: 34px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 50%;
+
+      background: rgba(0,0,0,0.5);
+
+      backdrop-filter: blur(10px);
+
+      font-size: 16px;
+    }
+
+    .talent-info {
+      padding: 17px;
+    }
+
+    .talent-name {
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: center;
+
+      margin-bottom: 3px;
+    }
+
+    .talent-name h3 {
+      font-size: 16px;
+    }
+
+    .verified {
+      color: #60a5fa;
+      font-size: 13px;
+    }
+
+    .talent-role {
+      color: #888894;
+
+      font-size: 12px;
+
+      margin-bottom: 15px;
+    }
+
+    .talent-bottom {
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: center;
+
+      padding-top: 13px;
+
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .rating {
+      color: #facc15;
+      font-size: 12px;
+    }
+
+    .rating span {
+      color: #8d8d97;
+      margin-left: 4px;
+    }
+
+    .price {
+      font-size: 12px;
+      color: #aaaab4;
+    }
+
+    .price strong {
+      color: white;
+    }
+
+    /* =========================================================
+       CATEGORIES
+    ========================================================= */
+
+    .categories {
+      background: #0c0c10;
+    }
+
+    .category-grid {
+      display: grid;
+
+      grid-template-columns: repeat(6, 1fr);
+
+      gap: 14px;
+    }
+
+    .category {
+      min-height: 180px;
+
+      position: relative;
+
+      padding: 24px;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+
+      border-radius: 20px;
+
+      overflow: hidden;
+
+      border: 1px solid var(--border);
+
+      transition: 0.3s ease;
+    }
+
+    .category:hover {
+      transform: translateY(-5px);
+      border-color: rgba(255,255,255,0.18);
+    }
+
+    .category::before {
+      content: "";
+
+      position: absolute;
+
+      inset: 0;
+
+      background:
+        linear-gradient(
+          to top,
+          rgba(0,0,0,0.85),
+          rgba(0,0,0,0.05)
+        );
+
+      z-index: 1;
+    }
+
+    .category-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .category:nth-child(1) {
+      background:
+        url("https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=700&q=80")
+        center/cover;
+    }
+
+    .category:nth-child(2) {
+      background:
+        url("https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=700&q=80")
+        center/cover;
+    }
+
+    .category:nth-child(3) {
+      background:
+        url("https://images.unsplash.com/photo-1524250502761-1ac6f2e30d43?auto=format&fit=crop&w=700&q=80")
+        center/cover;
+    }
+
+    .category:nth-child(4) {
+      background:
+        url("https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=700&q=80")
+        center/cover;
+    }
+
+    .category:nth-child(5) {
+      background:
+        url("https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=700&q=80")
+        center/cover;
+    }
+
+    .category:nth-child(6) {
+      background:
+        url("https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=700&q=80")
+        center/cover;
+    }
+
+    .category-icon {
+      font-size: 24px;
+
+      margin-bottom: 8px;
+    }
+
+    .category h3 {
+      font-size: 16px;
+      margin-bottom: 2px;
+    }
+
+    .category p {
+      color: #b2b2bc;
+      font-size: 11px;
+    }
+
+    /* =========================================================
+       SERVICES
+    ========================================================= */
+
+    .service-grid {
+      display: grid;
+
+      grid-template-columns: repeat(3, 1fr);
+
+      gap: 18px;
+    }
+
+    .service-card {
+      padding: 18px;
+
+      background: #111116;
+
+      border: 1px solid var(--border);
+
+      border-radius: 20px;
+
+      transition: 0.3s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .service-image {
+      height: 190px;
+
+      border-radius: 14px;
+
+      overflow: hidden;
+
+      margin-bottom: 18px;
+    }
+
+    .service-image img {
+      height: 100%;
+    }
+
+    .service-meta {
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: center;
+
+      color: #878792;
+
+      font-size: 11px;
+
+      margin-bottom: 8px;
+    }
+
+    .service-card h3 {
+      font-size: 16px;
+
+      line-height: 1.4;
+
+      margin-bottom: 15px;
+    }
+
+    .service-footer {
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: center;
+
+      padding-top: 14px;
+
+      border-top: 1px solid var(--border);
+    }
+
+    .creator-mini {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .creator-mini img {
+      width: 30px;
+      height: 30px;
+
+      border-radius: 50%;
+    }
+
+    .creator-mini span {
+      font-size: 11px;
+      color: #aaaab4;
+    }
+
+    .service-price {
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    /* =========================================================
+       FEATURED CREATOR
+    ========================================================= */
+
+    .featured {
+      background: #0c0c10;
+    }
+
+    .featured-box {
+      min-height: 540px;
+
+      display: grid;
+
+      grid-template-columns: 1fr 1fr;
+
+      border-radius: 30px;
+
+      overflow: hidden;
+
+      background: #131319;
+
+      border: 1px solid var(--border);
+    }
+
+    .featured-image {
+      position: relative;
+
+      min-height: 540px;
+    }
+
+    .featured-image img {
+      height: 100%;
+    }
+
+    .featured-image::after {
+      content: "";
+
+      position: absolute;
+
+      inset: 0;
+
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          rgba(19,19,25,0.1)
+        );
+    }
+
+    .featured-content {
+      padding: 65px;
+
+      display: flex;
+
+      flex-direction: column;
+
+      justify-content: center;
+    }
+
+    .featured-tag {
+      color: #b794ff;
+
+      text-transform: uppercase;
+
+      font-size: 11px;
+
+      letter-spacing: 2px;
+
+      font-weight: 700;
+
+      margin-bottom: 18px;
+    }
+
+    .featured-content h2 {
+      font-family: "Manrope", sans-serif;
+
+      font-size: clamp(35px, 4vw, 56px);
+
+      line-height: 1.05;
+
+      letter-spacing: -2px;
+
+      margin-bottom: 18px;
+    }
+
+    .featured-content p {
+      color: #9999a5;
+
+      max-width: 450px;
+
+      margin-bottom: 28px;
+    }
+
+    .featured-stats {
+      display: flex;
+
+      gap: 35px;
+
+      margin-bottom: 30px;
+    }
+
+    .featured-stat strong {
+      display: block;
+
+      font-size: 20px;
+    }
+
+    .featured-stat span {
+      color: #777782;
+
+      font-size: 11px;
+    }
+
+    .primary-btn {
+      width: fit-content;
+
+      padding: 13px 20px;
+
+      border: 0;
+
+      border-radius: 11px;
+
+      background: var(--gradient);
+
+      color: white;
+
+      font-weight: 700;
+
+      transition: 0.25s ease;
+    }
+
+    .primary-btn:hover {
+      transform: translateY(-2px);
+
+      box-shadow:
+        0 15px 40px rgba(139,92,246,0.25);
+    }
+
+    /* =========================================================
+       BOOKING
+    ========================================================= */
+
+    .booking-box {
+      padding: 45px;
+
+      border-radius: 28px;
+
+      background:
+        radial-gradient(
+          circle at top right,
+          rgba(139,92,246,0.18),
+          transparent 35%
+        ),
+        #111116;
+
+      border: 1px solid var(--border);
+
+      display: grid;
+
+      grid-template-columns: 1fr 1fr;
+
+      gap: 60px;
+    }
+
+    .booking-content h2 {
+      font-family: "Manrope", sans-serif;
+
+      font-size: 42px;
+
+      line-height: 1.05;
+
+      letter-spacing: -1.5px;
+
+      margin-bottom: 18px;
+    }
+
+    .booking-content p {
+      color: #92929d;
+
+      max-width: 470px;
+
+      margin-bottom: 30px;
+    }
+
+    .booking-features {
+      display: grid;
+
+      grid-template-columns: 1fr 1fr;
+
+      gap: 15px;
+    }
+
+    .booking-feature {
+      padding: 16px;
+
+      background: rgba(255,255,255,0.03);
+
+      border: 1px solid var(--border);
+
+      border-radius: 14px;
+    }
+
+    .booking-feature strong {
+      display: block;
+
+      font-size: 13px;
+
+      margin-bottom: 3px;
+    }
+
+    .booking-feature span {
+      color: #777782;
+
+      font-size: 11px;
+    }
+
+    .calendar {
+      background: #0b0b0f;
+
+      border: 1px solid var(--border);
+
+      border-radius: 20px;
+
+      padding: 22px;
+    }
+
+    .calendar-header {
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: center;
+
+      margin-bottom: 20px;
+    }
+
+    .calendar-header h3 {
+      font-size: 15px;
+    }
+
+    .calendar-header span {
+      color: #777782;
+
+      font-size: 12px;
+    }
+
+    .days {
+      display: grid;
+
+      grid-template-columns: repeat(7, 1fr);
+
+      gap: 6px;
+
+      margin-bottom: 15px;
+    }
+
+    .days span {
+      text-align: center;
+
+      color: #686873;
+
+      font-size: 10px;
+    }
+
+    .dates {
+      display: grid;
+
+      grid-template-columns: repeat(7, 1fr);
+
+      gap: 6px;
+    }
+
+    .date {
+      height: 34px;
+
+      display: grid;
+
+      place-items: center;
+
+      border-radius: 8px;
+
+      color: #a4a4ae;
+
+      font-size: 11px;
+    }
+
+    .date:hover {
+      background: rgba(255,255,255,0.06);
+    }
+
+    .date.active {
+      background: var(--gradient);
+
+      color: white;
+    }
+
+    .date.muted {
+      color: #3f3f47;
+    }
+
+    /* =========================================================
+       HOW IT WORKS
+    ========================================================= */
+
+    .steps {
+      display: grid;
+
+      grid-template-columns: repeat(3, 1fr);
+
+      gap: 20px;
+    }
+
+    .step {
+      position: relative;
+
+      padding: 35px;
+
+      border: 1px solid var(--border);
+
+      border-radius: 20px;
+
+      background: #101015;
+    }
+
+    .step-number {
+      width: 45px;
+      height: 45px;
+
+      display: grid;
+
+      place-items: center;
+
+      border-radius: 13px;
+
+      background: rgba(139,92,246,0.12);
+
+      color: #b794ff;
+
+      font-weight: 700;
+
+      margin-bottom: 25px;
+    }
+
+    .step h3 {
+      font-size: 19px;
+
+      margin-bottom: 9px;
+    }
+
+    .step p {
+      color: #777782;
+
+      font-size: 13px;
+    }
+
+    /* =========================================================
+       CREATOR CTA
+    ========================================================= */
+
+    .creator-cta {
+      position: relative;
+
+      padding: 90px 50px;
+
+      text-align: center;
+
+      border-radius: 30px;
+
+      overflow: hidden;
+
+      background:
+        linear-gradient(
+          120deg,
+          #17121f,
+          #111116
+        );
+
+      border: 1px solid var(--border);
+    }
+
+    .creator-cta::before {
+      content: "";
+
+      position: absolute;
+
+      width: 400px;
+      height: 400px;
+
+      top: -250px;
+      left: 50%;
+
+      transform: translateX(-50%);
+
+      background: rgba(139,92,246,0.22);
+
+      filter: blur(100px);
+
+      border-radius: 50%;
+    }
+
+    .creator-cta > * {
+      position: relative;
+      z-index: 2;
+    }
+
+    .creator-cta h2 {
+      font-family: "Manrope", sans-serif;
+
+      font-size: clamp(38px, 5vw, 62px);
+
+      line-height: 1;
+
+      letter-spacing: -2.5px;
+
+      margin-bottom: 18px;
+    }
+
+    .creator-cta p {
+      color: #898994;
+
+      max-width: 550px;
+
+      margin: auto auto 28px;
+    }
+
+    .secondary-btn {
+      padding: 13px 20px;
+
+      border-radius: 11px;
+
+      background: transparent;
+
+      border: 1px solid rgba(255,255,255,0.13);
+
+      color: white;
+
+      margin-left: 8px;
+    }
+
+    /* =========================================================
+       FOOTER
+    ========================================================= */
+
+    footer {
+      padding: 70px 0 30px;
+
+      border-top: 1px solid var(--border);
+
+      background: #060609;
+    }
+
+    .footer-grid {
+      display: grid;
+
+      grid-template-columns: 2fr repeat(3, 1fr);
+
+      gap: 50px;
+
+      padding-bottom: 55px;
+    }
+
+    .footer-brand p {
+      max-width: 300px;
+
+      color: #70707b;
+
+      font-size: 13px;
+
+      margin-top: 15px;
+    }
+
+    .footer-column h4 {
+      font-size: 13px;
+
+      margin-bottom: 18px;
+    }
+
+    .footer-column a {
+      display: block;
+
+      color: #70707b;
+
+      font-size: 12px;
+
+      margin-bottom: 10px;
+
+      transition: 0.2s ease;
+    }
+
+    .footer-column a:hover {
+      color: white;
+    }
+
+    .footer-bottom {
+      padding-top: 25px;
+
+      border-top: 1px solid var(--border);
+
+      display: flex;
+
+      justify-content: space-between;
+
+      color: #5f5f69;
+
+      font-size: 11px;
+    }
+
+    /* =========================================================
+       RESPONSIVE
+    ========================================================= */
+
+    @media (max-width: 1000px) {
+
+      nav {
+        display: none;
+      }
+
+      .talent-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .category-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .featured-box,
+      .booking-box {
+        grid-template-columns: 1fr;
+      }
+
+      .featured-image {
+        min-height: 450px;
+      }
+
+      .featured-content {
+        padding: 45px;
+      }
+    }
+
+    @media (max-width: 700px) {
+
+      .section {
+        padding: 75px 0;
+      }
+
+      .hero h1 {
+        letter-spacing: -3px;
+      }
+
+      .hero-description {
+        font-size: 15px;
+      }
+
+      .hero-search {
+        flex-direction: row;
+      }
+
+      .search-btn {
+        padding: 12px 15px;
+      }
+
+      .stats-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .stat:nth-child(2) {
+        border-right: 0;
+      }
+
+      .stat:nth-child(-n+2) {
+        border-bottom: 1px solid var(--border);
+      }
+
+      .talent-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .talent-image {
+        height: 360px;
+      }
+
+      .category-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .service-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .steps {
+        grid-template-columns: 1fr;
+      }
+
+      .booking-box {
+        padding: 25px;
+      }
+
+      .booking-content h2 {
+        font-size: 34px;
+      }
+
+      .booking-features {
+        grid-template-columns: 1fr;
+      }
+
+      .featured-content {
+        padding: 30px;
+      }
+
+      .featured-image {
+        min-height: 350px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .footer-brand {
+        grid-column: 1 / -1;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+
+        gap: 10px;
+      }
+
+      .nav-actions .login-btn {
+        display: none;
+      }
+    }
+
+    @media (max-width: 430px) {
+
+      .logo {
+        font-size: 18px;
+      }
+
+      .signup-btn {
+        padding: 9px 13px;
+      }
+
+      .hero-search input {
+        width: 100px;
+      }
+
+      .category-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .creator-cta {
+        padding: 60px 25px;
+      }
+
+      .secondary-btn {
+        display: block;
+
+        margin: 10px auto 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =======================================================
+       NAVBAR
+  ======================================================== -->
+
+  <header>
+    <div class="container navbar">
+
+      <a href="#" class="logo">
+        <div class="logo-mark">
+          <span>T</span>
+        </div>
+
+        TalentHub
+      </a>
+
+      <nav>
+        <a href="#discover">Discover</a>
+        <a href="#categories">Categories</a>
+        <a href="#services">Services</a>
+        <a href="#booking">Bookings</a>
+        <a href="#creators">For Creators</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="#" class="login-btn">Log in</a>
+        <a href="#" class="signup-btn">Join TalentHub</a>
+      </div>
+
+    </div>
+  </header>
+
+
+  <!-- =======================================================
+       HERO
+  ======================================================== -->
+
+  <main>
+
+    <section class="hero">
+
+      <div class="container">
+
+        <div class="hero-content">
+
+          <div class="hero-badge">
+            <span class="live-dot"></span>
+            12,400+ talents online right now
+          </div>
+
+          <h1>
+            Where <span class="gradient-text">talent</span>
+            meets opportunity.
+          </h1>
+
+          <p class="hero-description">
+            Discover incredible creators, hire skilled professionals,
+            book unforgettable experiences, and build your career
+            in one place.
+          </p>
+
+          <div class="hero-search">
+
+            <div class="search-icon">
+              ⌕
+            </div>
+
+            <input
+              type="text"
+              placeholder="Search artists, creators, services..."
+            />
+
+            <button class="search-btn">
+              Explore
+            </button>
+
+          </div>
+
+          <div class="hero-tags">
+            <span>🎵 Musicians</span>
+            <span>🎨 Designers</span>
+            <span>📸 Photographers</span>
+            <span>🎤 Singers</span>
+            <span>💻 Developers</span>
+            <span>🎬 Creators</span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         STATS
+    ====================================================== -->
+
+    <section class="stats">
+
+      <div class="container stats-grid">
+
+        <div class="stat">
+          <h3>48K+</h3>
+          <p>Talented creators</p>
+        </div>
+
+        <div class="stat">
+          <h3>126K+</h3>
+          <p>Services available</p>
+        </div>
+
+        <div class="stat">
+          <h3>82K+</h3>
+          <p>Successful bookings</p>
+        </div>
+
+        <div class="stat">
+          <h3>96%</h3>
+          <p>Happy clients</p>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         TRENDING TALENTS
+    ====================================================== -->
+
+    <section class="section" id="discover">
+
+      <div class="container">
+
+        <div class="section-header">
+
+          <div>
+            <div class="section-label">
+              Discover
+            </div>
+
+            <h2 class="section-title">
+              Trending <span class="gradient-text">talents.</span>
+            </h2>
+          </div>
+
+          <p class="section-description">
+            Meet creators who are making noise, building communities,
+            and turning their skills into meaningful careers.
+          </p>
+
+        </div>
+
+
+        <div class="talent-grid">
+
+          <!-- TALENT 1 -->
+
+          <article class="talent-card">
+
+            <div class="talent-image">
+
+              <img
+                src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=700&q=80"
+                alt="Alex Morgan"
+              />
+
+              <div class="online">
+                <i></i>
+                Available now
+              </div>
+
+              <div class="heart">
+                ♡
+              </div>
+
+            </div>
+
+            <div class="talent-info">
+
+              <div class="talent-name">
+                <h3>Alex Morgan</h3>
+                <span class="verified">✓</span>
+              </div>
+
+              <p class="talent-role">
+                Music Producer · Los Angeles
+              </p>
+
+              <div class="talent-bottom">
+
+                <div class="rating">
+                  ★ 4.9
+                  <span>(128)</span>
+                </div>
+
+                <div class="price">
+                  From <strong>$45</strong>
+                </div>
+
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <!-- TALENT 2 -->
+
+          <article class="talent-card">
+
+            <div class="talent-image">
+
+              <img
+                src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=700&q=80"
+                alt="Sophia Williams"
+              />
+
+              <div class="online">
+                <i></i>
+                Available today
+              </div>
+
+              <div class="heart">
+                ♡
+              </div>
+
+            </div>
+
+            <div class="talent-info">
+
+              <div class="talent-name">
+                <h3>Sophia Williams</h3>
+                <span class="verified">✓</span>
+              </div>
+
+              <p class="talent-role">
+                Vocal Artist · New York
+              </p>
+
+              <div class="talent-bottom">
+
+                <div class="rating">
+                  ★ 5.0
+                  <span>(94)</span>
+                </div>
+
+                <div class="price">
+                  From <strong>$60</strong>
+                </div>
+
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <!-- TALENT 3 -->
+
+          <article class="talent-card">
+
+            <div class="talent-image">
+
+              <img
+                src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=700&q=80"
+                alt="Daniel Kim"
+              />
+
+              <div class="online">
+                <i></i>
+                Available now
+              </div>
+
+              <div class="heart">
+                ♡
+              </div>
+
+            </div>
+
+            <div class="talent-info">
+
+              <div class="talent-name">
+                <h3>Daniel Kim</h3>
+                <span class="verified">✓</span>
+              </div>
+
+              <p class="talent-role">
+                UI/UX Designer · Seoul
+              </p>
+
+              <div class="talent-bottom">
+
+                <div class="rating">
+                  ★ 4.9
+                  <span>(216)</span>
+                </div>
+
+                <div class="price">
+                  From <strong>$80</strong>
+                </div>
+
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <!-- TALENT 4 -->
+
+          <article class="talent-card">
+
+            <div class="talent-image">
+
+              <img
+                src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=700&q=80"
+                alt="Maya Chen"
+              />
+
+              <div class="online">
+                <i></i>
+                Available this week
+              </div>
+
+              <div class="heart">
+                ♡
+              </div>
+
+            </div>
+
+            <div class="talent-info">
+
+              <div class="talent-name">
+                <h3>Maya Chen</h3>
+                <span class="verified">✓</span>
+              </div>
+
+              <p class="talent-role">
+                Photographer · Singapore
+              </p>
+
+              <div class="talent-bottom">
+
+                <div class="rating">
+                  ★ 4.8
+                  <span>(76)</span>
+                </div>
+
+                <div class="price">
+                  From <strong>$55</strong>
+                </div>
+
+              </div>
+
+            </div>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         CATEGORIES
+    ====================================================== -->
+
+    <section class="section categories" id="categories">
+
+      <div class="container">
+
+        <div class="section-header">
+
+          <div>
+            <div class="section-label">
+              Explore
+            </div>
+
+            <h2 class="section-title">
+              Find your <span class="gradient-text">thing.</span>
+            </h2>
+          </div>
+
+          <p class="section-description">
+            From music and photography to development and design,
+            discover people who can bring your ideas to life.
+          </p>
+
+        </div>
+
+
+        <div class="category-grid">
+
+          <a href="#" class="category">
+            <div class="category-content">
+              <div class="category-icon">🎵</div>
+              <h3>Music</h3>
+              <p>8,240 talents</p>
+            </div>
+          </a>
+
+          <a href="#" class="category">
+            <div class="category-content">
+              <div class="category-icon">🎨</div>
+              <h3>Art & Design</h3>
+              <p>12,840 talents</p>
+            </div>
+          </a>
+
+          <a href="#" class="category">
+            <div class="category-content">
+              <div class="category-icon">📸</div>
+              <h3>Photography</h3>
+              <p>6,520 talents</p>
+            </div>
+          </a>
+
+          <a href="#" class="category">
+            <div class="category-content">
+              <div class="category-icon">💻</div>
+              <h3>Development</h3>
+              <p>14,120 talents</p>
+            </div>
+          </a>
+
+          <a href="#" class="category">
+            <div class="category-content">
+              <div class="category-icon">🎬</div>
+              <h3>Video</h3>
+              <p>7,320 talents</p>
+            </div>
+          </a>
+
+          <a href="#" class="category">
+            <div class="category-content">
+              <div class="category-icon">🎤</div>
+              <h3>Performers</h3>
+              <p>4,920 talents</p>
+            </div>
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         SERVICES
+    ====================================================== -->
+
+    <section class="section" id="services">
+
+      <div class="container">
+
+        <div class="section-header">
+
+          <div>
+            <div class="section-label">
+              Marketplace
+            </div>
+
+            <h2 class="section-title">
+              Skills you can <span class="gradient-text">book.</span>
+            </h2>
+          </div>
+
+          <p class="section-description">
+            Hire talented people for real projects, personal experiences,
+            events, collaborations and everything in between.
+          </p>
+
+        </div>
+
+
+        <div class="service-grid">
+
+
+          <!-- SERVICE 1 -->
+
+          <article class="service-card">
+
+            <div class="service-image">
+
+              <img
+                src="https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=900&q=80"
+                alt="Brand identity design"
+              />
+
+            </div>
+
+            <div class="service-meta">
+              <span>Design</span>
+              <span>★ 4.9</span>
+            </div>
+
+            <h3>
+              I'll create a premium brand identity for your startup
+            </h3>
+
+            <div class="service-footer">
+
+              <div class="creator-mini">
+
+                <img
+                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80"
+                  alt=""
+                />
+
+                <span>Michael Ross</span>
+
+              </div>
+
+              <div class="service-price">
+                From $120
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <!-- SERVICE 2 -->
+
+          <article class="service-card">
+
+            <div class="service-image">
+
+              <img
+                src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=900&q=80"
+                alt="Music production"
+              />
+
+            </div>
+
+            <div class="service-meta">
+              <span>Music</span>
+              <span>★ 5.0</span>
+            </div>
+
+            <h3>
+              I'll produce and mix your next song professionally
+            </h3>
+
+            <div class="service-footer">
+
+              <div class="creator-mini">
+
+                <img
+                  src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80"
+                  alt=""
+                />
+
+                <span>Emma Stone</span>
+
+              </div>
+
+              <div class="service-price">
+                From $75
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <!-- SERVICE 3 -->
+
+          <article class="service-card">
+
+            <div class="service-image">
+
+              <img
+                src="https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=900&q=80"
+                alt="Web development"
+              />
+
+            </div>
+
+            <div class="service-meta">
+              <span>Development</span>
+              <span>★ 4.9</span>
+            </div>
+
+            <h3>
+              I'll build a modern website for your business
+            </h3>
+
+            <div class="service-footer">
+
+              <div class="creator-mini">
+
+                <img
+                  src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=100&q=80"
+                  alt=""
+                />
+
+                <span>Ryan Lee</span>
+
+              </div>
+
+              <div class="service-price">
+                From $250
+              </div>
+
+            </div>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         FEATURED CREATOR
+    ====================================================== -->
+
+    <section class="section featured" id="creators">
+
+      <div class="container">
+
+        <div class="featured-box">
+
+          <div class="featured-image">
+
+            <img
+              src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=1200&q=85"
+              alt="Featured creator"
+            />
+
+          </div>
+
+          <div class="featured-content">
+
+            <div class="featured-tag">
+              Creator spotlight
+            </div>
+
+            <h2>
+              Meet <span class="gradient-text">Lena.</span>
+            </h2>
+
+            <p>
+              A singer, songwriter and independent artist building
+              her audience one story at a time. Book Lena for private
+              performances, songwriting sessions or collaborations.
+            </p>
+
+            <div class="featured-stats">
+
+              <div class="featured-stat">
+                <strong>24.8K</strong>
+                <span>Followers</span>
+              </div>
+
+              <div class="featured-stat">
+                <strong>184</strong>
+                <span>Bookings</span>
+              </div>
+
+              <div class="featured-stat">
+                <strong>4.98</strong>
+                <span>Rating</span>
+              </div>
+
+            </div>
+
+            <a href="#" class="primary-btn">
+              View profile →
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         BOOKING
+    ====================================================== -->
+
+    <section class="section" id="booking">
+
+      <div class="container">
+
+        <div class="booking-box">
+
+          <div class="booking-content">
+
+            <div class="section-label">
+              Book experiences
+            </div>
+
+            <h2>
+              Your calendar.
+              <span class="gradient-text">
+                Their talent.
+              </span>
+            </h2>
+
+            <p>
+              Forget endless messages trying to find the right time.
+              TalentHub lets creators publish their availability and
+              clients book directly.
+            </p>
+
+            <div class="booking-features">
+
+              <div class="booking-feature">
+                <strong>⚡ Instant booking</strong>
+                <span>Book available slots immediately.</span>
+              </div>
+
+              <div class="booking-feature">
+                <strong>🔒 Secure payments</strong>
+                <span>Your payment stays protected.</span>
+              </div>
+
+              <div class="booking-feature">
+                <strong>💬 Direct chat</strong>
+                <span>Talk before the session begins.</span>
+              </div>
+
+              <div class="booking-feature">
+                <strong>⭐ Reviews</strong>
+                <span>Build trust through real feedback.</span>
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!-- CALENDAR -->
+
+          <div class="calendar">
+
+            <div class="calendar-header">
+
+              <h3>September 2026</h3>
+
+              <span>
+                ← &nbsp; →
+              </span>
+
+            </div>
+
+            <div class="days">
+
+              <span>MON</span>
+              <span>TUE</span>
+              <span>WED</span>
+              <span>THU</span>
+              <span>FRI</span>
+              <span>SAT</span>
+              <span>SUN</span>
+
+            </div>
+
+            <div class="dates">
+
+              <div class="date muted">31</div>
+              <div class="date">1</div>
+              <div class="date">2</div>
+              <div class="date">3</div>
+              <div class="date active">4</div>
+              <div class="date">5</div>
+              <div class="date">6</div>
+
+              <div class="date">7</div>
+              <div class="date">8</div>
+              <div class="date">9</div>
+              <div class="date">10</div>
+              <div class="date">11</div>
+              <div class="date">12</div>
+              <div class="date">13</div>
+
+              <div class="date">14</div>
+              <div class="date">15</div>
+              <div class="date">16</div>
+              <div class="date">17</div>
+              <div class="date">18</div>
+              <div class="date">19</div>
+              <div class="date">20</div>
+
+              <div class="date">21</div>
+              <div class="date">22</div>
+              <div class="date">23</div>
+              <div class="date">24</div>
+              <div class="date">25</div>
+              <div class="date">26</div>
+              <div class="date">27</div>
+
+              <div class="date">28</div>
+              <div class="date">29</div>
+              <div class="date">30</div>
+              <div class="date muted">1</div>
+              <div class="date muted">2</div>
+              <div class="date muted">3</div>
+              <div class="date muted">4</div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         HOW IT WORKS
+    ====================================================== -->
+
+    <section class="section categories">
+
+      <div class="container">
+
+        <div class="section-header">
+
+          <div>
+            <div class="section-label">
+              Simple by design
+            </div>
+
+            <h2 class="section-title">
+              From discovery to <span class="gradient-text">done.</span>
+            </h2>
+          </div>
+
+          <p class="section-description">
+            TalentHub removes the friction between finding talented
+            people and actually working with them.
+          </p>
+
+        </div>
+
+
+        <div class="steps">
+
+          <div class="step">
+
+            <div class="step-number">
+              01
+            </div>
+
+            <h3>
+              Discover
+            </h3>
+
+            <p>
+              Browse creators, portfolios, services and content.
+              Find someone whose style matches your vision.
+            </p>
+
+          </div>
+
+
+          <div class="step">
+
+            <div class="step-number">
+              02
+            </div>
+
+            <h3>
+              Connect
+            </h3>
+
+            <p>
+              Chat directly, discuss your project, choose a service
+              or select a convenient booking time.
+            </p>
+
+          </div>
+
+
+          <div class="step">
+
+            <div class="step-number">
+              03
+            </div>
+
+            <h3>
+              Create
+            </h3>
+
+            <p>
+              Work together, complete the experience and leave a
+              review that helps the community grow.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         CREATOR CTA
+    ====================================================== -->
+
+    <section class="section">
+
+      <div class="container">
+
+        <div class="creator-cta">
+
+          <div class="section-label">
+            For creators
+          </div>
+
+          <h2>
+            Your talent deserves
+            <span class="gradient-text">
+              an audience.
+            </span>
+          </h2>
+
+          <p>
+            Build your profile, showcase your work, sell services,
+            accept bookings and turn your skills into income.
+          </p>
+
+          <a href="#" class="primary-btn">
+            Start creating free
+          </a>
+
+          <a href="#" class="secondary-btn">
+            Learn more
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =======================================================
+       FOOTER
+  ======================================================== -->
+
+  <footer>
+
+    <div class="container">
+
+      <div class="footer-grid">
+
+        <div class="footer-brand">
+
+          <a href="#" class="logo">
+            <div class="logo-mark">
+              <span>T</span>
+            </div>
+
+            TalentHub
+          </a>
+
+          <p>
+            A place where talented people meet people
+            who believe in what they can create.
+          </p>
+
+        </div>
+
+
+        <div class="footer-column">
+
+          <h4>Explore</h4>
+
+          <a href="#">Discover talents</a>
+          <a href="#">Services</a>
+          <a href="#">Categories</a>
+          <a href="#">Trending</a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+          <h4>Creators</h4>
+
+          <a href="#">Become a creator</a>
+          <a href="#">Creator dashboard</a>
+          <a href="#">Pricing</a>
+          <a href="#">Resources</a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+          <h4>Company</h4>
+
+          <a href="#">About</a>
+          <a href="#">Careers</a>
+          <a href="#">Contact</a>
+          <a href="#">Privacy</a>
+
+        </div>
+
+      </div>
+
+
+      <div class="footer-bottom">
+
+        <span>
+          © 2026 TalentHub. All rights reserved.
+        </span>
+
+        <span>
+          Made for people who create.
+        </span>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+</body>
 </html>
