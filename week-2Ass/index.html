@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic Evaluation System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <main class="eval-card">
+        <h2>Academic Grade Evaluator</h2>
+        
+        <form id="gradeForm">
+            <div class="input-group">
+                <label for="m1">Web Tech</label>
+                <input type="number" id="m1" min="0" max="100" required>
+            </div>
+            <div class="input-group">
+                <label for="m2">Database Systems</label>
+                <input type="number" id="m2" min="0" max="100" required>
+            </div>
+            <div class="input-group">
+                <label for="m3">Software Eng</label>
+                <input type="number" id="m3" min="0" max="100" required>
+            </div>
+            <div class="input-group">
+                <label for="m4">Network Fundamentals</label>
+                <input type="number" id="m4" min="0" max="100" required>
+            </div>
+            <div class="input-group">
+                <label for="m5">Mobile App Dev</label>
+                <input type="number" id="m5" min="0" max="100" required>
+            </div>
+
+            <button type="button" onclick="evaluatePerformance()">Calculate Performance</button>
+        </form>
+
+        <section class="output-panel">
+            <p id="statsDisplay"></p>
+            <p id="statusDisplay"></p>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>

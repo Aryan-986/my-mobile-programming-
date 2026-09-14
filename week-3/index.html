@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Minimal Profile Card</title>
+  
+  <!-- jQuery CDN -->
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  
+  <style>
+    .card {
+      width: 250px;
+      padding: 16px;
+      border: 1px solid #ccc;
+      text-align: center;
+      transition: background-color 0.2s;
+    }
+    .profile-img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.5);
+    }
+    .modal-content {
+      background: #fff;
+      margin: 100px auto;
+      padding: 20px;
+      width: 200px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card" id="profileCard">
+    <img src="https://via.placeholder.com/80" alt="Profile" class="profile-img">
+    <h3>Aryan Karki</h3>
+    <p>Address: Kathmandu, Buddhanagar</p>
+    <p>Phone: +977 9867378511</p>
+    <button id="openQr">Show QR</button>
+  </div>
+
+  <div class="modal" id="qrPopup">
+    <div class="modal-content">
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=JaneDoe" alt="QR Code">
+      <br><br>
+      <button id="closeQr">Close</button>
+    </div>
+  </div>
+
+  <script>
+    $(document).ready(function() {
+      $('#profileCard').hover(
+        function() { $(this).css('background-color', '#e0f7fa'); },
+        function() { $(this).css('background-color', '#ffffff'); }
+      );
+
+  
+      $('#openQr').click(function() {
+        $('#qrPopup').show();
+      });
+
+
+      $('#closeQr').click(function() {
+        $('#qrPopup').hide();
+      });
+    });
+  </script>
+
+</body>
+</html>
